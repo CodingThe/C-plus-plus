@@ -2,6 +2,7 @@
 using namespace std;
 int main(){
 int *arr=new int[4];
+
 arr[0]=96;
 arr[1]=97;
 arr[2]=98;
