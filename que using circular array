@@ -1,0 +1,91 @@
+// Online C++ compiler to run C++ program online
+#include <bits/stdc++.h>
+using namespace std;
+
+struct Queue{
+    int *arr;
+    int front,cap,size;
+    Queue(int c){
+        arr=new int[c];
+        cap=c;
+        size=0;
+        front=0;
+    }
+    bool isFull(){
+        return (cap==size);
+    }
+    bool isEmpty(){
+        return (size==0);
+    }
+    int getFront(){
+        if(isEmpty()){
+            return -1;
+        }
+        else{
+            return arr[front];
+        }
+    }
+    int getRear(){
+        if(isEmpty()){
+            return -1;
+        }
+        else{
+            int x=(front+size-1)%cap;
+            return arr[x];
+        }
+    }
+    void enque(int x){
+        if(isFull()){
+            return;
+        }
+        int rear=getRear();
+        rear=(rear+1)%cap;
+        arr[rear]=x;
+        size++;
+    }
+    void deque(){
+        if(isEmpty()){
+            return;
+        }
+        front=(front+1)%cap;
+        size--;
+    }
+    
+    int getSize(){
+    int ans=0;
+    for(int i=0;i<cap;i++){
+        if(arr[i]){
+            ans++;
+        }
+    }
+    return ans;
+}
+
+};
+
+int main() {
+    // Write C++ code here
+    Queue q(5);
+
+    // Enqueue elements
+    q.enque(10);
+    q.enque(20);
+    q.enque(30);
+
+    // Dequeue an element
+    q.deque();
+
+    // Get the front and rear elements
+    int front = q.getFront();
+    int rear = q.getRear();
+
+    // Get the size of the queue
+    int size = q.getSize();
+
+    // Print the results
+    std::cout << "Front element: " << front << std::endl;
+    std::cout << "Rear element: " << rear << std::endl;
+    std::cout << "Size of the queue: " << size << std::endl;
+
+    return 0;
+}
