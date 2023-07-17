@@ -1,0 +1,45 @@
+// Online C++ compiler to run C++ program online
+#include <bits/stdc++.h>
+using namespace std;
+
+int bin_search(vector<int>v,int x,int low,int high){
+    if(low>high){
+        return -1;
+    }
+    else{
+        int mid=(low+high)/2;
+    if(v[mid]==x){
+        return mid;
+    }
+    else if(v[mid]>x){
+    return bin_search(v,x,low,mid-1);
+    }
+    else{
+    return bin_search(v,x,mid+1,high);
+
+    }
+    }
+   
+}
+int main() {
+    // Write C++ code here
+    int  n;
+    cin>>n;
+    vector<int>v;
+    for(int i=0;i<n;i++){
+        int x;
+        cin>>x;
+        v.push_back(x);
+    }
+    int x;
+    cin>>x;
+    int y=bin_search(v,x,0,n);
+    if(y==-1){
+        cout<<"Not found"<<endl;
+    }
+    else{
+        cout<<"found at: "<<y;
+    }
+
+    return 0;
+}
