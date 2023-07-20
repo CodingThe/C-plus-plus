@@ -1,0 +1,33 @@
+// Online C++ compiler to run C++ program online
+#include <bits/stdc++.h>
+using namespace std;
+int max_sum(vector<int>&v,int n){
+    int res=v[0];
+    for(int i=0;i<n;i++){
+        int curr_max=v[i];
+        int curr_sum=v[i];
+        for(int j=1;j<n;j++){
+            int index=(i+j)%n;
+            curr_sum+=v[index];
+            curr_max=max(curr_max,curr_sum);
+        }
+        res=max(res,curr_max);
+    }
+    return res;
+}
+
+int main() {
+    // Write C++ code here
+    int n;
+    cin>>n;
+    vector<int>v;
+    for(int i=0;i<n;i++){
+        int x;
+        cin>>x;
+        v.push_back(x);
+    }
+    cout<<max_sum(v,n)<<endl;
+    
+
+    return 0;
+}
