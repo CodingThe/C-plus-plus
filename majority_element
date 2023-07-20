@@ -1,0 +1,36 @@
+// Online C++ compiler to run C++ program online
+#include <bits/stdc++.h>
+using namespace std;
+int majority_ele(vector<int>&v,int n){
+ int res=0,count=1;
+ for(int i=0;i<n;i++){
+     if(v[res]=v[i]){
+         count++;
+     }
+     else{
+         count--;
+         if(count==0){
+             res=i;
+             count=1;
+         }
+     }
+ }
+ return res;
+}
+
+int main() {
+    // Write C++ code here
+    int n;
+    cin>>n;
+    vector<int>v;
+    for(int i=0;i<n;i++){
+        int x;
+        cin>>x;
+        v.push_back(x);
+    }
+    int ans=majority_ele(v,n);
+    cout<<v[ans]<<endl;
+    
+
+    return 0;
+}
