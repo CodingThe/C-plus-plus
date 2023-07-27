@@ -1,0 +1,28 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+    unordered_map<string ,int>mp;
+    mp["gfg"]=20;
+    mp["geeks"]=30;
+    mp.insert({"forgeeks",40});
+    for(auto it:mp){
+        cout<<it.first<<" "<<it.second<<endl;
+    }
+    
+    if(mp.find("forgeeks")!=mp.end()){
+        cout<<"forgeeks is present"<<endl;
+    }
+    else{
+        cout<<"not found"<<endl;
+    }
+    
+    for(auto it=mp.begin();it!=mp.end();it++){
+        cout<<it->first<<" "<<it->second<<endl;
+    }
+    int arr[]={10,20,30,40,50,60,70,80,90,100,100,99};
+    int n=12;
+    unordered_set<int>s(arr,arr+n);
+    cout<<s.size();
+    
+    return 0;
+}
