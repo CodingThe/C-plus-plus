@@ -1,0 +1,25 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+    unordered_set<int>s;
+    s.insert(10);
+    s.insert(20);
+    s.insert(30);
+    cout<<"elements: ";
+    for(auto it:s){
+        cout<<it<<" ";
+    }
+    cout<<endl;
+    cout<<"begining element is: "<<*s.begin()<<endl;
+    cout<<"size of set is: "<<s.size()<<endl;
+    cout<<"finding function: "<< (s.find(20)!=s.end())<<" is found"<<endl;
+    s.erase(30);
+    cout<<"after erase founding the element: "<<(s.find(30)!=s.end())<<endl;
+    cout<<"counting the value: "<<count(s.begin(),s.end(),20)<<endl;
+    s.clear();
+    cout<<"size afer clearing: "<<s.size()<<endl;
+    
+    
+    
+    return 0;
+}
