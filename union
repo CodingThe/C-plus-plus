@@ -1,0 +1,34 @@
+#include <bits/stdc++.h>
+using namespace std;
+void mapi(unordered_set<int>&s,vector<int>&v,vector<int>&ma){
+    for(int i=0;i<v.size();i++){
+      s.insert(v[i]);
+    }
+     for(int i=0;i<ma.size();i++){
+      s.insert(ma[i]);
+    }
+    for(auto it:s){
+        cout<<it<<" ";
+    }
+}
+int main(){
+    unordered_set<int>s;
+  int n;
+  cin>>n;
+  vector<int>v;
+  for(int i=0;i<n;i++){
+      int x;
+      cin>>x;
+      v.push_back(x);
+  }
+   int m;
+  cin>>m;
+  vector<int>ma;
+  for(int i=0;i<m;i++){
+      int x;
+      cin>>x;
+      ma.push_back(x);
+  }
+  mapi(s,v,ma);
+    return 0;
+}
