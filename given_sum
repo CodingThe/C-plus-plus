@@ -1,0 +1,49 @@
+#include <bits/stdc++.h>
+using namespace std;
+int mapi(unordered_set<int>&s,vector<int>&v,int x){
+  /*  int pre_sum=0;
+    for(int i=0;i<v.size();i++){
+        pre_sum+=v[i];
+        if(s.find(pre_sum)!=s.end() or pre_sum==0){
+            return true;
+        }
+        s.insert(pre_sum);
+        
+    }
+    
+    return false;  */
+    int st=0,curr=0;
+    for(int i=0;i<v.size();i++){
+        curr+=v[i];
+        while(x<curr){
+            curr-=v[st];
+            st++;
+        }
+        if(curr==x){
+            return true;
+        }
+     
+    }
+    return false;
+    
+}
+int main(){
+    unordered_set<int>s;
+  int n;
+  cin>>n;
+  vector<int>v;
+  for(int i=0;i<n;i++){
+      int x;
+      cin>>x;
+      v.push_back(x);
+  }
+  int x;
+  cin>>x;
+  if(mapi(s,v,x)){
+      cout<<"Subarray is found"<<endl;
+  }
+  else{
+      cout<<"Subarray is not found"<<endl;
+  }
+    return 0;
+}
