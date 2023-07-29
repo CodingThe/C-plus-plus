@@ -1,0 +1,24 @@
+#include <bits/stdc++.h>
+using namespace std;
+bool is_pal(string s){
+     int l=0,r=s.size()-1;
+   while(l<r){
+       if(s[l]!=s[r]){
+           return false;
+       }
+   }
+   return true;
+   
+}
+int main()
+{
+    string s;
+    cin>>s;
+    if(is_pal(s)){
+        cout<<"it is a palindrome"<<endl;
+    }
+    else{
+        cout<<"it is not a palindrome"<<endl;
+    }
+    return 0;
+}
