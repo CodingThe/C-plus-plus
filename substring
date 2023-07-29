@@ -1,0 +1,29 @@
+#include <bits/stdc++.h>
+using namespace std;
+bool is_pal(string s,string match){
+     int match_size=match.size();
+     for(int i=0;i<s.size();i++){
+         if(s[i]==match[0]){
+             string str=s.substr(i,match_size);
+             if(str==match){
+                 return true;
+             }
+         }
+     }
+     return false;
+   
+}
+int main()
+{
+    string s;
+    cin>>s;
+    string match;
+    cin>>match;
+    if(is_pal(s,match)){
+        cout<<"it is substring"<<endl;
+    }
+    else{
+        cout<<"it is not substring"<<endl;
+    }
+    return 0;
+}
