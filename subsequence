@@ -1,0 +1,30 @@
+#include <bits/stdc++.h>
+using namespace std;
+bool is_pal(string s,string match){
+    if(match.size()>s.size()){
+        return false;
+    }
+     int match_size=match.size();
+     int j=0;
+     for(int i=0;i<s.size() and j<match_size;i++){
+         if(s[i]==match[j]){
+            j++;
+             }
+         }
+         return (j==match_size);
+     }
+
+int main()
+{
+    string s;
+    cin>>s;
+    string match;
+    cin>>match;
+    if(is_pal(s,match)){
+        cout<<"it is susequence"<<endl;
+    }
+    else{
+        cout<<"it is not subsequece"<<endl;
+    }
+    return 0;
+}
