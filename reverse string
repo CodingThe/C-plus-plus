@@ -1,0 +1,29 @@
+#include <bits/stdc++.h>
+using namespace std;
+void repeating_char(string s)
+{
+stack<string>st;
+int i=0;
+for(int j=0;j<s.size();j++){
+    if(s[j]==' '){
+        string str=s.substr(i,j-i);
+        st.push(str);
+        i=j+1;
+    }
+}
+ string str=s.substr(i);
+        st.push(str);
+  while(st.empty()!=true){
+      cout<<st.top()<<" ";
+      st.pop();
+  }
+}
+int main()
+{
+    string s;
+    getline(cin,s);
+    repeating_char(s);
+
+    return 0;
+    
+}
