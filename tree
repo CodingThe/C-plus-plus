@@ -1,0 +1,83 @@
+
+#include <bits/stdc++.h>
+
+using namespace std;
+struct node{
+    int key;
+    node *left;
+    node *right;
+node(int k){
+    key=k;
+    left=right=NULL;
+}
+};
+void inorder(node *root){
+    if(root!=NULL){
+       
+       inorder(root->left);
+       
+       inorder(root->right);
+        cout<<root->key<<" ";
+    }
+}
+int height(node *root){
+    if(root==NULL){
+        return 0;
+    }
+
+    return max(height(root->left),height(root->right))+1;
+}
+ void nodeatdist(node *root,int k){
+     if(root==NULL){
+         return;
+     }
+     if(k==0){
+         cout<<root->key<<endl;
+     }
+     else{
+         nodeatdist(root->left,k-1);
+         nodeatdist(root->right,k-1);
+     }
+ }
+ void levelordtraversal(node *root){
+     if(root==NULL){
+         return ;
+     }
+     queue<node*>q;
+     q.push(root);
+     while(q.empty()==false){
+         node *curr=q.front();
+         q.pop();
+         cout<<curr->key<<" ";
+         if(curr->left!=NULL){
+             q.push(curr->left);
+         }
+         if(curr->right!=NULL){
+             q.push(curr->right);
+         }
+     }
+ }
+ 
+int main()
+{
+    node *root=new node(100);
+    root->left=new node(200);
+    root->right=new node(300);
+    root->left->left=new node(400);
+    root->left->right=new node(500);
+    root->right->left=new node(600);
+    root->right->right=new node(700);
+    root->left->left->left=new node(800);
+    root->left->left->right=new node(900);
+    inorder(root);
+    cout<<endl;
+    
+    cout<<"height: "<<height(root)<<endl;
+    int k;
+    cin>>k;
+    cout<<"kth position: ";
+    nodeatdist(root,k);
+    cout<<"level order: ";
+    levelordtraversal(root);
+    return 0;
+}
