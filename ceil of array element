@@ -1,0 +1,31 @@
+#include <bits/stdc++.h>
+using namespace std;
+void ceili(vector<int>& v, int n) {
+    set<int> s;
+    for (int i = 0; i < n; i++) {
+        if(*(s.upper_bound(v[i]))>v[i]){
+           cout << *(s.upper_bound(v[i])) << " "; 
+        }
+           
+        else{
+            cout<<-1<<" ";
+        }   
+        s.insert(v[i]);
+    }
+}
+
+
+int main() {
+    vector<int> v;
+    int n;
+    cin >> n;
+    while (n--) {
+        int x;
+        cin >> x;
+        v.push_back(x);
+    }
+    ceili(v, v.size());  // Pass the correct size of the vector
+
+    return 0;
+}
+
